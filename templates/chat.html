@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Chat Room</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static',
+    filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js" type="module"></script>
+
+</head>
+
+<body>
+
+<div class="chat-wrapper">
+
+    <div class="top-bar">
+
+        <h2>Chat Room</h2>
+
+        <span id="onlineUsers">
+            Online : 0
+        </span>
+
+    </div>
+
+    <div class="chat-container">
+
+    <div class="users-panel">
+
+        <h3>👥 Users</h3>
+
+        <div id="userList">
+
+        </div>
+
+    </div>
+
+    <div id="messages"></div>
+
+</div>
+
+   <div id="typingIndicator"></div>
+
+    <div class="input-area">
+
+    <input
+    type="text"
+    id="message"
+    placeholder="Type message">
+
+    <button id="emojiBtn">
+        😀
+    </button>
+
+    <input
+type="file"
+id="imageInput"
+accept="image/*"
+style="display:none;">
+
+<button id="imageBtn">
+    📷
+</button>
+
+<input
+type="file"
+id="fileInput"
+style="display:none;">
+
+<button id="fileBtn">
+    📄
+</button>
+
+
+    <emoji-picker
+    id="emojiPicker"
+    style="display:none; position:absolute; bottom:80px;">
+    </emoji-picker>
+
+    <button id="recordBtn">
+        🎙️
+    </button>
+
+    <button onclick="sendMessage()">
+        Send
+    </button>
+
+</div>
+
+    <div style="text-align:center;color:gray;margin-top:10px;">
+        Developed by Pankaj
+    </div>
+
+</div>
+
+<script>
+
+const username =
+"{{ username }}";
+
+</script>
+
+<audio
+id="notificationSound"
+src="{{ url_for('static',
+filename='notification.mp3') }}">
+</audio>
+
+<script src="{{ url_for('static',
+filename='script.js') }}"></script>
+</body>
+
+</html>
